@@ -1,0 +1,553 @@
+{
+  // Globals are editor.nameX whereas
+  // non-global are designated via the document language selector
+  //
+
+  // VSCode Core Settings
+
+  // As of end of May 2023 getting scheme errors on settings.json file
+  // temp fix per https://github.com/microsoft/tsdoc/issues/253
+  "json.schemaDownload.enable": true,
+
+  
+
+
+  "markdown.preview.breaks": true,
+  // Controls the font size in pixels used in the Markdown preview.
+  "markdown.preview.fontSize": 16,
+  // Controls the line height used in the Markdown preview. This number is relative to the font size.
+  "markdown.preview.lineHeight": 1.6,
+
+  // outline is used instead of minimap
+  "editor.minimap.enabled": false,
+  // Controls the indentation of wrapped lines.
+  //  - none: No indentation. Wrapped lines begin at column 1.
+  //  - same: Wrapped lines get the same indentation as the parent.
+  //  - indent: Wrapped lines get +1 indentation toward the parent.
+  //  - deepIndent: Wrapped lines get +2 indentation toward the parent.
+  "editor.wrappingIndent": "indent",
+  // Controls whether a border should be drawn around the overview ruler.
+  "editor.overviewRulerBorder": false,
+  // Controls the line height.
+  //  - Use 0 to automatically compute the line height from the font size.
+  //  - Values between 0 and 8 will be used as a multiplier with the font size.
+  //  - Values greater than or equal to 8 will be used as effective values.
+  "editor.lineHeight": 24,
+  "[markdown]": {
+    // Controls whether suggestions should automatically show up while typing.
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  // Controls whether bracket pair guides are enabled or not.
+  //  - true: Enables bracket pair guides.
+  //  - active: Enables bracket pair guides only for the active bracket pair.
+  //  - false: Disables bracket pair guides.
+  "editor.guides.bracketPairs": "active",
+
+  // VSCode Core settings, Better Comments
+  // https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
+  "better-comments.multilineComments": true,
+  "better-comments.highlightPlainText": false,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+
+  //TodoTree
+  // https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "#FF2020",
+    "background": "#C0C0C0",
+    "opacity": 50,
+    "iconColour": "#0000D0"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "type": "line"
+    },
+    "FIXME": {
+      "foreground": "#D0D0FF",
+      "iconColour": "#9ACD32",
+      "gutterIcon": true
+    }
+  },
+
+  //--End  VSCode Core settings, todo  highlight
+
+  // VSCode core, Markdown Lint
+  // Markdown Lint
+  // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+  //
+  // Then to suppress is a comment block one to disable the lint rule and
+  // then a end comment to re-enable the lint rule in the markdown doc
+  "markdownlint.config": {
+    "default": true,
+    "MD003": { "style": "atx_closed" },
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": true
+  },
+  "markdownlint.ignore": [
+    "ignore.md",
+    "directory/ignore.md",
+    "**/ignore.md",
+    "**/*.md"
+  ],
+  //--End VSCode core, Markdown Lint
+
+  // Github Markdown Preview settings
+  // for Foam and VSCode core settings
+  // Markdown Mermaid
+  // https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid
+  "markdown-mermaid.lightModeTheme": "base",
+  "markdown-mermaid.languages": ["mermaid"],
+  // css styling for icons part of Markdown Mermaid
+  "markdown.styles": [
+    "https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+  ],
+  "markdown-preview-github-styles.colorTheme": "light",
+  //--End of GitHub Markdown preview settings for Foam and
+  //  VSCode core settings
+
+  // VSCode core settings, GitLens
+  "gitlens.codeLens.authors.enabled": true,
+  "gitlens.codeLens.dateFormat": "dddd, MMMM Do YYYY, h:mm:ss a",
+  "gitlens.codeLens.enabled": true,
+  "gitlens.codeLens.includeSingleLineSymbols": false,
+  "gitlens.codeLens.recentChange.enabled": true,
+  //--End of VSCode core settings, GitLens
+
+  // VSCode core settings, LTEx
+  // Replaces languagetool
+  // https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex
+  "ltex.enabled": ["latex", "markdown"],
+  "ltex.checkFrequency": "manual",
+  "ltex.additionalRules.enablePickyRules": true,
+  "ltex.completionEnabled": true,
+  "ltex.additionalRules.motherTongue": "en-US",
+  "ltex.disabledRules": {
+    "en-US": ["EN_QUOTES", "UPPERCASE_SENTENCE_START"]
+  },
+  "ltex.markdown.nodes": {
+    "CodeBlock": "ignore",
+    "FencedCodeBlock": "ignore",
+    "AutoLink": "dummy",
+    "Code": "dummy"
+  },
+  "ltex.language": "en-US",
+  "ltex.configurationTarget": {
+    "dictionary": "workspaceFolderExternalFile",
+    "disabledRules": "workspaceFolderExternalFile",
+    "hiddenFalsePositives": "workspaceFolderExternalFile"
+  },
+  "ltex.latex.commands": {
+    "\\label{}": "ignore",
+    "\\documentclass[]{}": "ignore",
+    "\\cite{}": "dummy",
+    "\\cite[]{}": "dummy"
+  },
+  "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+    "activitybar",
+    "formaton",
+    "minimap",
+    "symbolpath",
+    "symbolsortorder",
+    "vscode",
+    "vscode-insiders",
+    "zettelkasten"
+  ],
+  // need to set this to false when using the public API services
+  "languageToolLinter.lintOnChange": false,
+  //--End VSCode core settings, LTex
+
+  // VSCode core settings Read Time
+  // Read Time
+  // https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time
+  "readTime.enabled": true,
+  "readTime.wordsPerMinute": 200,
+  //--End VSCode core settings, LTex
+
+  // VSCode core settings, icon themes
+  // File Icon Theme
+  // VSCode Icons customization goes here
+  // https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+  // Customization docs in the project wiki at
+  // https://github.com/vscode-icons/vscode-icons/wiki
+  "vsicons.projectDetection.autoReload": false,
+  "vsicons.projectDetection.disableDetect": false,
+  "workbench.iconTheme": "vscode-icons",
+  // Material Product Icons
+  // https://marketplace.visualstudio.com/items?itemName=PKief.material-product-icons
+  "workbench.productIconTheme": "material-product-icons",
+  //--End VSCode core settings, icon themes
+
+  // VSCode core settings
+  // Rewrap
+  // https://marketplace.visualstudio.com/items?itemName=stkb.rewrap
+  "rewrap.autoWrap.enabled": false,
+  "rewrap.autoWrap.notification": "icon",
+  "rewrap.doubleSentenceSpacing": false,
+  "rewrap.onSave": false,
+  "rewrap.reformat": false,
+  "rewrap.wholeComment": true,
+  "rewrap.wrappingColumn": 0,
+  //--End VSCode core settings
+
+  // VSCode core settings
+  // since I use an auto save plugin this needs to be false
+  "snippetsManager.autoCloseSnippetBodyEditor": false,
+  //--End VSCode core settings
+
+  // VSCode core settings
+  // MetaGo
+  // https://marketplace.visualstudio.com/items?itemName=metaseed.metago
+  "metaGo.bookmark.saveBookmarksInProject": false,
+  "metaGo.decoration.additionalSingleCharCodeCharacters": "J,D,F,L,A,H,G,I,N,R,E,M,B,Q,T,Y",
+  "metaGo.decoration.backgroundColor": "#4068FF,#9ACD32",
+  "metaGo.decoration.backgroundOpacity": "0.8",
+  "metaGo.decoration.borderColor": "#1e1e1e",
+  "metaGo.decoration.characters": "k, j, d, f, l, s, a, h, g, i, o, n, u, r, v, c, w, e, x, m, b, p, q, t, y, z",
+  "metaGo.decoration.color": "white,blue",
+  "metaGo.decoration.fontSize": 16,
+  "metaGo.decoration.fontWeight": "bold",
+  "metaGo.decoration.height": 16,
+  "metaGo.decoration.matchBackground": "editor.wordHighlightBackground",
+  "metaGo.decoration.width": 8,
+  "metaGo.decoration.x": 1,
+  "metaGo.decoration.y": 12,
+  "metaGo.decoration.useTextBasedDecorations": true,
+  "metaGo.jumper.enableRippleSupportForSequentialTargetCharsCommand": true,
+  "metaGo.jumper.timeout": 9,
+  //--End VSCode core settings
+
+  // VSCode core settings
+  "multiclip.bufferSize": 10,
+  "multiclip.formatAfterPaste": false,
+  //--End VSCode core settings
+  // VSCode core settings
+  // Controls whether and how file paths are shown in the breadcrumbs view.
+  //  - on: Show the file path in the breadcrumbs view.
+  //  - off: Do not show the file path in the breadcrumbs view.
+  //  - last: Only show the last element of the file path in the breadcrumbs view.
+  "breadcrumbs.filePath": "last",
+  // Controls whether and how symbols are shown in the breadcrumbs view.
+  //  - on: Show all symbols in the breadcrumbs view.
+  //  - off: Do not show symbols in the breadcrumbs view.
+  //  - last: Only show the current symbol in the breadcrumbs view.
+  "breadcrumbs.symbolPath": "last",
+  // Controls how symbols are sorted in the breadcrumbs outline view.
+  //  - position: Show symbol outline in file position order.
+  //  - name: Show symbol outline in alphabetical order.
+  //  - type: Show symbol outline in symbol type order.
+  "breadcrumbs.symbolSortOrder": "name",
+  //--End of VSCode core settings
+
+  // Markdown All-In-One settings shared between Foam
+  // and VSCode core settings
+  // Markdown All-In-One
+  // https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
+  // whether or not to show the preview to the side automatically
+  "markdown.extension.preview.autoShowPreviewToSide": false,
+  "markdown.extension.bold.indicator": "**",
+  "markdown.extension.completion.respectVscodeSearchExclude": true,
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.list.indentationSize": "adaptive",
+  "markdown.extension.list.toggle.candidate-markers": [
+    "-",
+    "*",
+    "+",
+    "1.",
+    "1)"
+  ],
+  "markdown.extension.orderedList.autoRenumber": true,
+  "markdown.extension.orderedList.marker": "one",
+  "markdown.extension.print.absoluteImgPath": true,
+  "markdown.extension.print.imgToBase64": false,
+  "markdown.extension.print.includeVscodeStylesheets": true,
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.syntax.decorationFileSizeLimit": 50000,
+  "markdown.extension.syntax.plainTheme": false,
+  "markdown.extension.print.validateUrls": true,
+  "markdown.extension.tableFormatter.delimiterRowNoPadding": false,
+  "markdown.extension.tableFormatter.enabled": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": false,
+  "markdown.extension.toc.levels": "1..6",
+  "markdown.extension.toc.omittedFromToc": { "README.md": ["# Introduction"] },
+  "markdown.extension.toc.orderedList": false,
+  "markdown.extension.toc.plaintext": false,
+  "markdown.extension.toc.slugifyMode": "github",
+  "markdown.extension.toc.unorderedList.marker": "+",
+  "markdown.extension.toc.updateOnSave": true,
+  //--End of Markdown All-In-One shared between Foam and
+  //  VSCode core settings
+
+  // Prettier
+  // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  // Note, formatters are always fully configured via
+  // the language selector blocks per language
+  "prettier.singleQuote": false,
+
+  // Flutter Specifc Settings
+
+  "debug.openDebug": "openOnDebugBreak",
+  "debug.internalConsoleOptions": "openOnSessionStart",
+  //dartcode, we have two places to set one for non-editor and one for dart.editor
+  // screenshot is for mobile, I use device preview instead
+  "dart.flutterScreenshotPath": null,
+  "dart.devToolsTheme": "dark",
+  "dart.flutterCreateOrganization": "io.github.fredgrott",
+  "dart.previewFlutterUiGuides": true,
+  "dart.experimentalRefactors": false,
+  "dart.flutterGutterIcons": true,
+  "dart.previewCommitCharacters": false,
+
+  "dart.flutterOutline": true,
+  "dart.showTodos": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.promptToRunIfErrors": true,
+  "dart.lineLength": 120,
+  // these are for dartcode plugin for dart and flutter app development
+  // see https://dartcode.org/docs/settings/
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    //dartcode
+    "editor.formatOnSave": true,
+    //dartcode
+    "editor.formatOnType": true,
+    //dartcode
+    "editor.rulers": [120],
+    //dartcode
+    "editor.selectionHighlight": false,
+    //dartcode
+    "editor.suggest.shareSuggestSelections": false,
+    //dartcode
+    "editor.suggestSelection": "first",
+    //dartcode
+    "editor.tabCompletion": "onlySnippets",
+    //dartcode
+    "editor.wordBasedSuggestions": false
+  },
+  // per https://marketplace.visualstudio.com/items?itemName=Flutterando.flutter-coverage
+  "flutter-coverage.coverageFileNames": [
+    "lcov.info",
+    "cov.xml",
+    "coverage.xml",
+    "jacoco.xml"
+  ],
+  "flutter-coverage.coverageFilePaths": ["reports/coverage"],
+  "flutter-coverage.lowCoverageThreshold": 50,
+  "flutter-coverage.sufficientCoverageThreshold": 70,
+  // per  https://github.com/gmlewis/flutter-stylizer
+  "flutterStylizer": {
+    "groupAndSortGetterMethods": "false",
+    "memberOrdering": [
+      "public-constructor",
+      "named-constructors",
+      "public-static-variables",
+      "public-instance-variables",
+      "public-override-variables",
+      "private-static-variables",
+      "private-instance-variables",
+      "public-override-methods",
+      "public-other-methods",
+      "build-method"
+    ],
+    "processEnumsLikeClasses": false,
+    "sortClassesWithinFile": false,
+    "sortOtherMethods": false
+  },
+  "commandOnAllFiles.commands": {
+    "Format File": {
+        "command": "editor.action.formatDocument",
+        "includeFileExtensions": [
+            ".dart"
+        ]
+    },
+    "Flutter Stylizer": {
+        "command": "extension.flutterStylizer",
+        "includeFileExtensions": [
+            ".dart"
+        ]
+    }
+},
+
+
+  // per https: //marketplace.visualstudio.com/items?itemName=rexthedev.flutter-insider
+  "Insider.lang": "en",
+  "Insider.links": {
+    "Flutter Docs": "https://flutter.dev/docs",
+    "Dart Docs": "https://api.dart.dev",
+    "Flex Color Scheme": "https://docs.flexcolorscheme.com/",
+    "Provider": "https://pub.dev/documentation/provider/latest/",
+    "Bloc": "https://bloclibrary.dev/#/",
+    "Riverpod": "https://riverpod.dev/",
+    "Equatable": "https://pub.dev/documentation/equatable/latest/",
+    "Golden Toolkit": "https://pub.dev/documentation/golden_toolkit/latest/",
+    "Device Preview": "https://pub.dev/documentation/device_preview/latest/"
+  },
+
+  "workbench.editor.showTabs": true,
+  "workbench.activityBar.visible": true,
+
+  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorWidth": 1,
+
+  // per https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
+  "plantuml.diagramsRoot": "reports/docs/diagrams/src",
+  "plantuml.exportOutDir": "reports/docs/diagrams/out",
+  "plantuml.includepaths": ["docs/diagrams/style", "docs/diagrams/src"],
+  "plantuml.exportFormat": "png",
+
+  // per https://gist.github.com/gaetschwartz/b5fed3ebf7594c54472c6ecf11eed2e1
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, pubspec_overrides.yaml, all_lint_rules.yaml",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "readme.": "authors, backers.md, changelog, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart"
+  },
+
+  "bookmarks.navigateThroughAllFiles": false,
+  "bookmarks.wrapNavigation": true,
+  "bookmarks.saveBookmarksInProject": true,
+  "bookmarks.showCommandsInContextMenu": true,
+  "bookmarks.experimental.enableNewStickyEngine": false,
+  "bookmarks.keepBookmarksOnLineDelete": true,
+  "bookmarks.useWorkaroundForFormatters": true,
+  "bookmarks.sideBar.expanded": true,
+  "bookmarks.multicursor.toggleMode": "eachLineIndependently",
+  "bookmarks.label.suggestion": "useWhenSelected",
+
+  "java.compile.nullAnalysis.mode": "disabled",
+
+  
+  "editor.tokenColorCustomizations": { 
+    // see:
+      // https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
+      "textMateRules": [
+        {
+         "scope": [
+           "comment.block",
+           "punctuation.definition.comment.end",
+           "punctuation.definition.comment.begin"
+         ],
+         "settings": {
+           "foreground": "#85b3f8",
+           "fontStyle": "bold"
+         }
+        },
+        {
+          "scope": [
+            "comment.block.documentation",
+            "comment.block.dartcode.dart",
+           "punctuation.definition.comment.begin.documentation",
+           "punctuation.definition.comment.end.documentation"
+          ],
+          "settings": {
+            "foreground": "#6bddb7",
+            "fontStyle": "bold"
+          }
+        },
+        {
+         "scope":["comment.line",
+           "punctuation.definition.comment"],
+           "settings": {
+             "foreground": "#00a2ff",
+             "fontStyle": "bold"
+            }
+       },
+      ],
+
+   },
+
+   
+
+  // See VSCode https://code.visualstudio.com/api/references/theme-color
+  // Tokyo Night https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night
+  "workbench.colorCustomizations": {
+    "[Tokyo Night]": {
+      "foreground": "#959cbd",
+      "panelTitle.activeBorder": "#3d59a1",
+      "panelTitle.activeForeground": "#bdc7f0",
+      "panelTitle.inactiveForeground": "#959cbd",
+      "tab.activeForeground": "#bdc7f0",
+      "tab.inactiveForeground": "#959cbd",
+      "breadcrumb.foreground": "#959cbd",
+      "breadcrumb.focusForeground": "#bdc7f0",
+      "breadcrumb.activeSelectionForeground": "#bdc7f0",
+      "statusBar.foreground": "#bdc7f0",
+      "list.focusForeground": "#bdc7f0",
+      "list.hoverForeground": "#bdc7f0",
+      "list.activeSelectionForeground": "#bdc7f0",
+      "list.inactiveSelectionForeground": "#bdc7f0",
+      "list.inactiveSelectionBackground": "#202330",
+      "sideBar.foreground": "#959cbd",
+      "sideBar.background": "#0b0c0e",
+      "dropdown.foreground": "#959cbd",
+      "menu.foreground": "#bdc7f0",
+      "menubar.selectionForeground": "#bdc7f0",
+      "input.foreground": "#959cbd",
+      "input.placeholderForeground": "#959cbd",
+      "activityBar.foreground": "#bdc7f0",
+      "activityBar.inactiveForeground": "#787c99",
+      "gitDecoration.ignoredResourceForeground": "#696d87",
+      "editorCodeLens.foreground": "#7982a9",
+      "scrollbarSlider.background": "#008cff",
+      "scrollbar.shadow": "#0771c7",
+      "scrollbarSlider.activeBackground": "#b700ff",
+      "scrollbarSlider.hoverBackground": "#ea00ff",
+      "dart.flutterUiGuides": "#a0d5f8"
+    }
+  }
+}

@@ -1,0 +1,2316 @@
+{
+   // DartCode launch doc example is at:
+   // https://dartcode.org/docs/launch-configuration/
+   // VSCode variable reference at:
+   // https://code.visualstudio.com/docs/editor/variables-reference
+   //
+   "version": "0.2.0",
+   "configurations": [
+
+     // default launch is always listed first, usually
+     // a desktop platform target and debug mode
+     {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Windows(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "windows",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Windows Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Windows(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "windows",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Windows Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Windows(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "windows",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // MacOS Debug
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter MacOS(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "macos",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // MacOS Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter MacOS(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "macos",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // MacOS Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter MacOS(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "macos",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Linux Debug
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Linux(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "linux",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Linux Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Linux(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "linux",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Linux Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Linux(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "linux",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar.
+	 // "deviceId": "iphone",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Android Debug
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Android(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "emulaor-5554",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Android Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Android(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "emulaor-5554",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Android Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Android(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "emulaor-5554",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // iPhone Debug
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter iPhone(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // iPhone Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter iPhone(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // iPhone Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter iPhone(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      //"args":[
+      //  "-d",
+      //  "windows",
+      //],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      "deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Web Debug
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Web(Debug)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "chrome",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      //"deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "debug",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Web Profile
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Web(Profile)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "chrome",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      //"deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "profile",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Web Release
+      {
+      // A name for the launch config. This will show in the dropdown on the Run side bar.
+      "name": "Flutter Web(Release)",
+
+      // This can be "launch" to start an app, or "attach" to attach to an existing app.
+      "request": "launch",
+
+      // This should always be "dart" for Dart/Flutter apps.
+	 // This selects the Dart debugger.
+      "type": "dart",
+
+      // The directory to start running the app from.
+      "cwd": "${workspaceFolder}",
+
+      // The entry script to execute when running the app.
+	 // Set to a "web" in a Dart web app to run in web move.
+	 // Set to "test" in an app with tests to run all tests.
+      "program": "lib/main.dart",
+
+      // Any custom environment variables to set when running the app with this
+	 // launch config.
+      "env": {
+        "RELEASE_MODE": "true"
+      },
+
+      // Arguments to be passed to the Dart VM when running Dart CLI scripts.
+	 // 
+	 // These arguments appear between "dart" and "run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+      "vmAdditionalArgs": [
+			"--vm_name=foo",
+	 ],
+
+       // Arguments to be passed to the Dart or Flutter tool.
+	 // 
+	 // These arguments appear after "dart run" or "flutter run":
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "toolArgs": [
+			"--dart-define", "MY_VAR=foo",
+			"--enable-experiment=patterns",
+	 ],
+
+      // Arguments to be passed to the Dart script being run (passed to `main()`).
+	 //
+	 // These arguments appear after the script being run.
+	 //
+	 //     dart (vmAdditionalArgs) run (toolArgs) bin/main.dart (args)
+	 //     flutter run (toolArgs) -t lib/main.dart (args)
+      "args":[
+        "-d",
+        "chrome",
+      ],
+
+      // Setting "templateFor" to a relative path will cause this config to be used for
+	 // all default Run/Debug CodeLens links and running tests from the test runner.
+	 // - Setting an empty string "" will apply it to the whole project (this is different
+	 //   to not being set, where it will not be used as a template at all).
+	 // - Setting it to "test" will apply only to files inside the "test" folder, etc.
+      "templateFor": "test",
+
+      // "debugConsole" or "terminal". If set to "terminal", will run in the built-in
+	 // terminal and will support reading from `stdin`. However some other debug
+	 // features may be limited.
+      "console": "debugConsole",
+
+      // Set to run a Flutter app on a specific device, ignoring the device selected
+	 // in the status bar. emulator-5554 is the default name
+      // of the android emulator instance.
+      //"deviceId": "33A341AF-200A-4E94-AF80-4DDE3FFB55F8",
+
+      // "debug", "profile" or "release".
+      "flutterMode": "release",
+
+      // Allows running Flutter tests on a real device instead of the default headless
+	 // flutter-tester device.
+      "runTestsOnDevice": false,
+
+      // If codeLens is defined, this launch configuration can be launched from custom
+	// CodeLens links in the editor (see the page linked above for more info).
+      "codeLens": {
+
+         // This array sets where custom CodeLens links will be rendered:
+	   // - run-test: Above test functions as a Run link
+	   // - debug-test: Above test functions as a Debug link
+	   // - run-test-file: Above main functions in test files as a Run link
+	   // - debug-test-file: Above main functions in test files as a Debug link
+	   // - run-file: Above main functions in bin/tool/lib files as a Run link
+	   // - debug-file: Above main functions in bin/tool/lib files as a Debug link
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+
+        // If specificed, the custom CodeLens will only appear for files that begin
+	   // with this path.
+        "path": "test/integration_tests",
+
+        // Text for the custom CodeLens. If not specified, will use the name field
+	   // from the parent launch configuration. The string "${debugType}" here will
+	   // be replaced with "run" or "debug" depending on the rendered position
+	   // (see the for field above).
+        "title": "${debugType} (release)"
+       },
+
+       // customTool is to support some specific complex configurations where instead of running
+	  // "dart" or "flutter" when starting debug sessions, another tool/script should be invoked.
+	  // Custom tools must be completely compatible with the process they are replacing (in many
+	  // cases they may just be wrapper scripts).
+	  //
+	  // See https://github.com/dart-lang/sdk/tree/master/pkg/dds/tool/dap#readme for more details
+	  // on how these values are used by the debug adapter.
+	  // "customTool": "my_custom_dart",
+	  // "customToolReplacesArgs": 1,
+
+      },
+
+      // Flutter Instrumented Test
+      // Will run on the first listed launch as VSCode will 
+      // choose that as the default device
+      {
+     "name": "Flutter Instrument Tests(Debug-Windows): Launch App",
+     "request": "launch",
+     "type": "dart",
+     "program": "instumented_test/app_test.dart",
+     "env": {
+        "RELEASE_MODE": "false"
+      },
+      "args": [
+        "-d",
+        "windows",
+      ],
+      "templateFor": "test",
+      "console": "debugConsole",
+      "flutterMode": "debug",
+
+     },
+     {
+      "name": "Flutter Instrument Tests(Debug-Windows): Launch Tests",
+      "request": "launch",
+      "type": "dart",
+      "program": "test_driver/integration_test.dart",
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+      
+     },
+
+
+     // Goldens
+     {
+      "name": "Golden",
+      "request": "launch",
+      "type": "dart",
+      "codeLens": {
+        "for": [
+          "run-test",
+          "run-test-file"
+        ]
+      },
+      "args": [
+        "--update-goldens"
+      ]
+    },
+
+    // Flutter Unit Tests Windows
+    {
+      "name": "Flutter Unit Tests(Debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "${workspaceFolder}",
+      // set the program parameter to the test folder
+      // as then will run all tests
+      "program": "test",
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+      "args": [
+        "-d",
+        "windows",
+      ],
+      "templateFor": "test",
+      "console": "debugConsole",
+      "flutterMode": "debug",
+      "runTestsOnDevice": false,
+      "codeLens": {
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+        "path": "test/integration_tests",
+        "title": "${debugType} (release)"
+      }
+    },
+
+    // Dart
+    {
+      "name": "Dart (Debug)",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "${workspaceFolder}",
+      "program": "bin/main.dart",
+      "env": {
+        "RELEASE_MODE": "false"
+      },
+      "args": [
+        "--dart-define",
+        "MY_VAR=foo"
+      ],
+      "templateFor": "test",
+      "console": "debugConsole",
+      "flutterMode": "debug",
+      "runTestsOnDevice": false,
+      "codeLens": {
+        "for": [
+          "run-test",
+          "run-test-file",
+          "debug-test",
+          "debug-test-file"
+        ],
+        "path": "test/integration_tests",
+        "title": "${debugType} (release)"
+      }
+    },
+
+
+
+
+
+
+   ]
+
+
+}
