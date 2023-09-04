@@ -11,22 +11,24 @@ import 'package:logging/logging.dart';
 // ```
 //    appLogger.i("my log message");
 // ```
+//
+// lazy set as first reference will call it.
 final appLogger = Logger("ToDoApp");
 
 void initLogging() {
   // disable hierarchical logger
   hierarchicalLoggingEnabled = false;
   // change to another level as needed.
-  Logger.root.level = Level.INFO;
+  appLogger.root.level = Level.INFO;
   // skip logging stactrace below the SEVERE level.
   recordStackTraceAtLevel = Level.SEVERE;
   assert(() {
     recordStackTraceAtLevel = Level.WARNING;
     // print all logs on debug build.
-    Logger.root.level = Level.ALL;
+    appLogger.root.level = Level.ALL;
     return true;
   }());
-  Logger.root.onRecord.listen((event) {
+  appLogger.root.onRecord.listen((event) {
     developer.log(
       event.message,
       time: event.time,

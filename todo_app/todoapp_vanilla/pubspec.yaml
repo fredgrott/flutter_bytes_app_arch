@@ -15,6 +15,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   catcher: ^0.7.0
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.1
+  domain_layer_non_rxdart:
+    path: ../domain_layer_non_rxdart
+  
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +32,7 @@ dependency_overrides:
   catcher:
     git:
       url: https://github.com/ThexXTURBOXx/catcher.git
+  uuid: ^4.0.0
 
 flutter:
   uses-material-design: true

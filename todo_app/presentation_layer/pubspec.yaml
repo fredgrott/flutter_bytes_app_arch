@@ -1,7 +1,7 @@
 name: presentation_layer
 description: A new Flutter project.
 version: 0.0.1
-homepage:
+homepage: 'https://fredgrott.github.io'
 
 environment:
   sdk: '>=3.2.0-42.1.beta <4.0.0'

@@ -9,7 +9,7 @@ late final BaseLogAppender appender;
 
 // in main
 // ```
-//   setUpAppenders():
+//   setUpAppenders();
 // ```
 void setUpAppenders() {
   // to enabled 3rd party services

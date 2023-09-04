@@ -1,20 +1,34 @@
+import 'package:catcher/core/catcher.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp_vanilla/catcher_navigator_key.dart';
+import 'package:todoapp_vanilla/catcher_options.dart';
+import 'package:todoapp_vanilla/my_app.dart';
+import 'package:todoapp_vanilla/src/services/app_services.dart';
+import 'package:todoapp_vanilla/src/services/services_provider.dart';
 
-import 'src/app.dart';
-import 'src/settings/settings_controller.dart';
-import 'src/settings/settings_service.dart';
 
-void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
-  final settingsController = SettingsController(SettingsService());
+// Flutter 3.3 and beyond we no longer use runGuardedZone
+// Note, there is a move in framework code to 
+// supply app initialization callbacks which has not
+// yet made it to beta and stable see
+// https://github.com/flutter/flutter/issues/64288
+// Note, that riverpod and provider differ in
+// how one loads the services before the Catcher
+//  rootWidget MyApp call.
+Future<void> main() async {
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
-  await settingsController.loadSettings();
+  final myServices = await AppServices.initialize();
+  
 
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+Catcher(
+    runAppFunction: () {
+      runApp(ServicesProvider(
+        services: myServices,
+        child: MyApp(catcherNavigatorKey),
+       ),);
+    },
+    debugConfig: debugOptions,
+    releaseConfig: releaseOptions,
+    navigatorKey: catcherNavigatorKey,
+  );
 }
