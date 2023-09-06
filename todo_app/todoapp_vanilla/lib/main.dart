@@ -1,31 +1,44 @@
+// Copyright 2023 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Copyright 2023 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 import 'package:catcher/core/catcher.dart';
 import 'package:flutter/material.dart';
-import 'package:todoapp_vanilla/catcher_navigator_key.dart';
-import 'package:todoapp_vanilla/catcher_options.dart';
-import 'package:todoapp_vanilla/my_app.dart';
-import 'package:todoapp_vanilla/src/services/app_services.dart';
-import 'package:todoapp_vanilla/src/services/services_provider.dart';
+import 'package:todoapp_vanilla/catcher/catcher_navigator_key.dart';
+import 'package:todoapp_vanilla/catcher/catcher_options.dart';
 
+import 'package:todoapp_vanilla/my_app.dart';
+import 'package:todoapp_vanilla/services/app_services.dart';
+import 'package:todoapp_vanilla/services/services_provider.dart';
 
 // Flutter 3.3 and beyond we no longer use runGuardedZone
-// Note, there is a move in framework code to 
+// Note, there is a move in framework code to
 // supply app initialization callbacks which has not
 // yet made it to beta and stable see
 // https://github.com/flutter/flutter/issues/64288
 // Note, that riverpod and provider differ in
 // how one loads the services before the Catcher
 //  rootWidget MyApp call.
+//
+// Specifically in Flutter 3.3 custom Zones is no
+// longer used as it slowed down app load time and thus
+// moved to PlatformDispatcher.onError callback which
+// is used in the new Catcher code.
 Future<void> main() async {
-
   final myServices = await AppServices.initialize();
-  
 
-Catcher(
+  Catcher(
     runAppFunction: () {
-      runApp(ServicesProvider(
-        services: myServices,
-        child: MyApp(catcherNavigatorKey),
-       ),);
+      runApp(
+        ServicesProvider(
+          services: myServices,
+          child: MyApp(catcherNavigatorKey),
+        ),
+      );
     },
     debugConfig: debugOptions,
     releaseConfig: releaseOptions,

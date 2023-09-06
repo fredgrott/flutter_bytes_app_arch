@@ -1,8 +1,12 @@
+// Copyright 2023 Fredrick Allan Grott. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todoapp_vanilla/src/services/asseet_image_loading_service.dart';
-import 'package:todoapp_vanilla/src/services/logging_appenders_service.dart';
-import 'package:todoapp_vanilla/src/services/services_provider.dart';
+import 'package:todoapp_vanilla/services/asseet_image_loading_service.dart';
+import 'package:todoapp_vanilla/services/logging_appenders_service.dart';
+import 'package:todoapp_vanilla/services/services_provider.dart';
 
 class AppServices {
   final SharedPreferences sharedPrefs;
