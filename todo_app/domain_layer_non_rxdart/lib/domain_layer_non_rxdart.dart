@@ -9,6 +9,10 @@
  */
 library domain_layer_non_rxdart;
 
-export 'src/guid.dart';
+
 export 'src/init_logging.dart';
+export 'src/services/app_services.dart';
+export 'src/services/asset_image_loading_service.dart';
+export 'src/services/logging_appenders_service.dart';
+export 'src/services/services_provider.dart';
 export 'src/set_up_appenders.dart';

@@ -19,16 +19,16 @@ void initLogging() {
   // disable hierarchical logger
   hierarchicalLoggingEnabled = false;
   // change to another level as needed.
-  appLogger.root.level = Level.INFO;
+  Logger.root.level = Level.INFO;
   // skip logging stactrace below the SEVERE level.
   recordStackTraceAtLevel = Level.SEVERE;
   assert(() {
     recordStackTraceAtLevel = Level.WARNING;
     // print all logs on debug build.
-    appLogger.root.level = Level.ALL;
+    Logger.root.level = Level.ALL;
     return true;
   }());
-  appLogger.root.onRecord.listen((event) {
+  Logger.root.onRecord.listen((event) {
     developer.log(
       event.message,
       time: event.time,

@@ -5,8 +5,9 @@
 // To assist organize stuff as the change
 // to runApp to have callback initializations
 // exposed is not in beta or stable yet
+import 'package:domain_layer_non_rxdart/src/services/app_services.dart';
 import 'package:flutter/material.dart';
-import 'package:todoapp_vanilla/services/app_services.dart';
+
 
 
 class ServicesProvider extends InheritedWidget {

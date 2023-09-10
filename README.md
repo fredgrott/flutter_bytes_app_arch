@@ -42,6 +42,8 @@ appear on these social sites:
 
 [Twitter](https://twitter.com/fredgrott)
 
+[Flutter Community at Twitter Communities](https://twitter.com/i/communities/1472249315724771329)
+
 
 
 

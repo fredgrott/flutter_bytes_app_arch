@@ -4,10 +4,11 @@
 
 // ignore_for_file: empty_constructor_bodies
 
-import 'package:flutter/material.dart';
-import 'package:todoapp_vanilla/asset_image_list.dart';
 
 // binary objects need to be cached
+import 'package:domain_layer_non_rxdart/src/models/asset_image_list.dart';
+import 'package:flutter/material.dart';
+
 class AssetImageLoadingService {
   AssetImageLoadingService() {}
 

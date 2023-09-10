@@ -2,22 +2,20 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+import 'package:domain_layer_non_rxdart/src/services/asset_image_loading_service.dart';
+import 'package:domain_layer_non_rxdart/src/services/logging_appenders_service.dart';
+import 'package:domain_layer_non_rxdart/src/services/services_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todoapp_vanilla/services/asseet_image_loading_service.dart';
-import 'package:todoapp_vanilla/services/logging_appenders_service.dart';
-import 'package:todoapp_vanilla/services/services_provider.dart';
+
 
 class AppServices {
-  final SharedPreferences sharedPrefs;
   final LoggingAppendersService loggingAppendersService;
   final AssetImageLoadingService assetImageLoadingService;
-
-  AppServices(this.sharedPrefs, this.loggingAppendersService, this.assetImageLoadingService);
+  
+  AppServices(this.loggingAppendersService, this.assetImageLoadingService, );
 
   static Future<AppServices> initialize() async {
-    final sharedPrefs = await SharedPreferences.getInstance();
-
+    
     final loggingAppendersService = LoggingAppendersService();
     await loggingAppendersService.initialize();
 
@@ -25,7 +23,8 @@ class AppServices {
     final assetImageLoadingService = AssetImageLoadingService();
     await assetImageLoadingService.initialize();
 
-    return AppServices(sharedPrefs, loggingAppendersService, assetImageLoadingService);
+     
+    return AppServices(loggingAppendersService, assetImageLoadingService);
   }
 
   static AppServices of(BuildContext context) {
