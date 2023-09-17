@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:todoapp_vanilla/child_widget.dart';
+import 'package:todoapp_vanilla/src/presentation/themes/my_light_hc_flex_color_scheme.dart';
+
 
 class MyApp extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
@@ -25,6 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: widget.navigatorKey,
+      highContrastTheme: customLightHCThemeData,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Plugin example app'),

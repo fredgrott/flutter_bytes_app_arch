@@ -15,19 +15,27 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   catcher: ^0.7.0
-  hive_flutter: ^1.1.0
-  shared_preferences: ^2.2.1
   domain_layer_non_rxdart:
     path: ../domain_layer_non_rxdart
-  
+  dynamic_color: ^1.6.6
+  flex_color_scheme: ^7.3.1
+  material_symbols_icons: ^4.2668.0
+  stager: ^1.0.1
+  logging: ^1.2.0
+  logging_appenders: ^1.2.0+1
+  path_provider: ^2.1.1
+
+    
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  golden_toolkit: ^0.15.0
   lint: ^2.1.2
+  mocktail: ^1.0.0
+  mockingjay: ^0.4.0
 
-
+# has the PR applied to use without runGuardedSone
 dependency_overrides:
   catcher:
     git:
@@ -42,4 +50,26 @@ flutter:
 
   assets:
     # Add assets from the images directory to the application.
+    # do I need to add assets symbols fonts subfolder for 
+    # goldens testing for material symbols?
     - assets/images/
+    
+  # Variable fonts currently require speciying them
+  # the old naked way without the google fonts package
+  fonts:
+    - family: RobotoFlex
+      fonts:
+        - asset: assets/google_fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf
+    - family: RobotoSerif-Italic
+      fonts:
+        - asset: assets/google_fonts/RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf
+    - family: RobotoSerif
+      fonts:
+        - asset: assets/google_fonts/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/google_fonts/RobotoSlab-VariableFont_wght.ttf
+
+
+    
+  

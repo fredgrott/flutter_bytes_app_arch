@@ -15,10 +15,7 @@ dependencies:
   equatable: ^2.0.5
   fluent_validation: ^2.1.1
   validators: ^3.0.0
-  logging: ^1.2.0
-  logging_appenders: ^1.2.0+1
-  path_provider: ^2.1.1
-  
+      
 
 
 dev_dependencies:
