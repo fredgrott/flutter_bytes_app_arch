@@ -12,13 +12,18 @@
 
 // ignore_for_file: comment_references
 
+import 'dart:math';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
 /// A rectangle border with continuous corners.
 ///
 /// A shape similar to a rounded rectangle, but with a smoother transition from
 /// the sides to the rounded corners.
 ///
 /// The rendered shape roughly approximates that of a super-ellipse. In this
-/// shape, the curvature of each 90º corner around the length of the arc is
+/// shape, the curvature of each 90ï¿½ corner around the length of the arc is
 /// approximately a gaussian curve instead of a step function as with a
 /// traditional quarter circle round. The rendered rectangle is roughly a
 /// super-ellipse with an n value of 5.
@@ -37,10 +42,10 @@
 /// dimension would be used to construct a corner and so ~76px x ~76px would be
 /// the minimal size needed to render this rectangle.
 ///
-/// This shape will always have 4 linear edges and 4 90º curves. However, for
+/// This shape will always have 4 linear edges and 4 90ï¿½ curves. However, for
 /// rectangles with small values of width or height (ie.  <20 lpx) and a low
 /// aspect ratio (ie. <0.3), the rendered shape will appear to have just 2
-/// linear edges and 2 180º curves.
+/// linear edges and 2 180ï¿½ curves.
 ///
 /// The example below shows how to render a continuous rectangle on screen.
 ///
@@ -80,7 +85,7 @@
 /// * [RoundedRectangleBorder], which is a rectangle whose corners are
 ///   precisely quarter circles.
 /// * [SquircleStadiumBorder], which is a stadium whose two edges have a
-///   continuous transition into its two 180º curves.
+///   continuous transition into its two 180ï¿½ curves.
 /// * [StadiumBorder], which is a rectangle with semi-circles on two parallel
 ///   edges.
 class SquircleBorder extends ShapeBorder {
@@ -106,8 +111,8 @@ class SquircleBorder extends ShapeBorder {
     final double height = rect.height;
     final double centerX = rect.center.dx;
     final double centerY = rect.center.dy;
-    final double radius = math.max(0.0, cornerRadius);
-    final double minSideLength = math.min(rect.width, rect.height);
+    final double radius = max(0.0, cornerRadius);
+    final double minSideLength = min(rect.width, rect.height);
 
     // These equations give the x and y values for each of the 8 mid and corner
     // points on a rectangle.
@@ -132,7 +137,7 @@ class SquircleBorder extends ShapeBorder {
     }
 
     // Renders the default superelliptical rounded rect shape where there are
-    // 4 straight edges and 4 90º corners. Approximately renders a superellipse
+    // 4 straight edges and 4 90ï¿½ corners. Approximately renders a superellipse
     // with an n value of 5.
     //
     // Paths and equations were inspired from the code listed on this website:
@@ -227,15 +232,15 @@ class SquircleBorder extends ShapeBorder {
     // As the minimum side edge length (where the round is occurring)
     // approaches 0, the limitedRadius approaches 2 so as to maximize
     // roundness (to make the shape with the largest radius that doesn't clip).
-    // As the edge length approaches 200, the limitedRadius approaches ~3 –- the
+    // As the edge length approaches 200, the limitedRadius approaches ~3 ï¿½- the
     // multiplier of the radius value where the resulting shape is concave (ie.
     // does not visually clip) at any dimension.
-    final double multiplier = ui.lerpDouble(
+    final double multiplier = lerpDouble(
       minimalEdgeLengthSideToCornerRadiusRatio,
       minimalUnclippedSideToCornerRadiusRatio,
       minSideLength / minRadiusEdgeLength,
     )!;
-    limitedRadius = math.min(radius, minSideLength / multiplier);
+    limitedRadius = min(radius, minSideLength / multiplier);
     return bezierRoundedRect();
   }
 
@@ -266,7 +271,7 @@ class SquircleBorder extends ShapeBorder {
   ShapeBorder? lerpFrom(ShapeBorder? a, double t) {
     if (a is SquircleBorder) {
       return SquircleBorder(
-        cornerRadius: ui.lerpDouble(a.cornerRadius, cornerRadius, t)!,
+        cornerRadius: lerpDouble(a.cornerRadius, cornerRadius, t)!,
       );
     }
     return super.lerpFrom(a, t);
@@ -276,7 +281,7 @@ class SquircleBorder extends ShapeBorder {
   ShapeBorder? lerpTo(ShapeBorder? b, double t) {
     if (b is SquircleBorder) {
       return SquircleBorder(
-        cornerRadius: ui.lerpDouble(cornerRadius, b.cornerRadius, t)!,
+        cornerRadius: lerpDouble(cornerRadius, b.cornerRadius, t)!,
       );
     }
     return super.lerpTo(b, t);

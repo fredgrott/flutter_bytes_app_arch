@@ -9,6 +9,8 @@
 // All rights reserved.
 
 
+import 'package:flutter/material.dart';
+
 /// Widget using [ToggleButtons) that can be used to toggle the theme mode
 /// of an application.
 ///

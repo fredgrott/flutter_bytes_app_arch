@@ -350,7 +350,7 @@ packages:
     source: hosted
     version: "2.1.2"
   logging:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging
       sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
@@ -358,7 +358,7 @@ packages:
     source: hosted
     version: "1.2.0"
   logging_appenders:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging_appenders
       sha256: "1fb8a008c04246f4677a0d034d69779a5975e56e02573a5162240239b247e239"
@@ -470,7 +470,7 @@ packages:
     source: hosted
     version: "1.8.3"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       sha256: a1aa8aaa2542a6bc57e381f132af822420216c80d4781f7aa085ca3229208aaa

@@ -11,13 +11,18 @@
 
 // ignore_for_file: comment_references
 
+
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
 /// A stadium border with continuous corners.
 ///
 /// A shape similar to a stadium, but with a smoother transition from
-/// each linear edge to its 180º curves. Each 180º curve is approximately half
+/// each linear edge to its 180ï¿½ curves. Each 180ï¿½ curve is approximately half
 /// an ellipse.
 ///
-/// In this shape, the curvature of each 180º curve around the length of the arc
+/// In this shape, the curvature of each 180ï¿½ curve around the length of the arc
 /// is approximately a gaussian curve instead of a step function as with a
 /// traditional half circle round.
 ///
@@ -28,7 +33,7 @@
 /// corner and so ~76px x ~38px would be used to render both corners on a given
 /// side.
 ///
-/// The two 180º arcs will always be positioned on the shorter side of the
+/// The two 180ï¿½ arcs will always be positioned on the shorter side of the
 /// rectangle like with the traditional [StadiumBorder] shape.
 ///
 /// 
@@ -84,7 +89,7 @@ class SquircleStadiumBorder extends ShapeBorder {
   final BorderSide side;
 
   Path _getPath(final Rect rectangle) {
-    // The two 180º arcs will always be positioned on the shorter side of the
+    // The two 180ï¿½ arcs will always be positioned on the shorter side of the
     // rectangle like with the traditional stadium border shape.
     final double sideWidth = side.width;
 
@@ -93,7 +98,7 @@ class SquircleStadiumBorder extends ShapeBorder {
     // The side width that is capped by the smallest dimension of the rectangle.
     // It represents the side width value used to render the stroke.
     final double actualSideWidth =
-        math.min(side.width, math.min(rect.width, rect.height) / 2.0);
+        min(side.width, min(rect.width, rect.height) / 2.0);
 
     // We need to change the dimensions of the rect in the event that the
     // shape has a side width as the stroke is drawn centered on the border of
@@ -150,7 +155,7 @@ class SquircleStadiumBorder extends ShapeBorder {
     final double centerY = rect.center.dy;
     final double originX = centerX - width / 2.0;
     final double originY = centerY - height / 2.0;
-    final double minDimension = math.min(width, height);
+    final double minDimension = min(width, height);
     final double radius =
         minDimension * minimalEdgeLengthSideToCornerRadiusRatio;
 
@@ -188,7 +193,7 @@ class SquircleStadiumBorder extends ShapeBorder {
       return originX + width - x * radius;
     }
 
-    // An elliptical shape with 2 straight edges and two 180º curves. The width
+    // An elliptical shape with 2 straight edges and two 180ï¿½ curves. The width
     // is greater than the height.
     //
     // Code was inspired from the code listed on this website:
@@ -235,7 +240,7 @@ class SquircleStadiumBorder extends ShapeBorder {
         ..close();
     }
 
-    // An elliptical shape which has 2 straight edges and two 180º curves. The
+    // An elliptical shape which has 2 straight edges and two 180ï¿½ curves. The
     // height is greater than the width.
     //
     // Code was inspired from the code listed on this website:
@@ -297,7 +302,7 @@ class SquircleStadiumBorder extends ShapeBorder {
           final Path path = getOuterPath(rect, textDirection: textDirection);
           final Paint paint = side.toPaint();
           paint.strokeWidth =
-              math.min(width, math.min(rect.width, rect.height) / 2);
+              min(width, min(rect.width, rect.height) / 2);
           paint.strokeJoin = StrokeJoin.round;
           canvas.drawPath(path, paint);
         }

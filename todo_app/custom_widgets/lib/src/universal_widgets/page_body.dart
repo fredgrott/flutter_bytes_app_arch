@@ -9,6 +9,8 @@
 // All rights reserved.
 
 
+import 'package:flutter/material.dart';
+
 /// A centered width constrained web style page body.
 ///
 /// This type of layout is often used on web pages.
