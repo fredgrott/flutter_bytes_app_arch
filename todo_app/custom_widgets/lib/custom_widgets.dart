@@ -6,10 +6,9 @@
 
 library custom_widgets;
 
-export 'src/app_custom_breakpoints.dart';
-export 'src/brick_layout.dart';
+export 'src/canonical_pane_wrapper.dart';
+export 'src/custom_scaffold.dart';
 export 'src/fold_observer.dart';
-export 'src/to_material_grid.dart';
 export 'src/universal_widgets/list_tile_reveal.dart';
 export 'src/universal_widgets/page_body.dart';
 export 'src/universal_widgets/responsive_dialog.dart';

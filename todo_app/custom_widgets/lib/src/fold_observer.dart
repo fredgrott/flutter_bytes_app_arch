@@ -2,12 +2,30 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-
-
 import 'dart:ui' as ui;
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+/// Extension method that helps with working with the hinge directly.
+///
+extension MediaQueryHinge on MediaQueryData {
+  DisplayFeature? get hinge {
+    for (final DisplayFeature e in displayFeatures) {
+      if (e.type == DisplayFeatureType.hinge) {
+        return e;
+      }
+    }
+    return null;
+  }
+}
+
+/// Detects if device has a fold hinge, i.e. foldable device
+/// see
+/// https://learn.microsoft.com/en-us/dual-screen/flutter/mediaquery
+/// hasHinge = MediaQuery.of(context).hinge != null;
+late bool hasHinge;
 
 /// Global so that we know when we have
 /// displayable second foldable screen as we can only
