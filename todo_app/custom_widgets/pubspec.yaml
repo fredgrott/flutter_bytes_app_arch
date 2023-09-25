@@ -1,7 +1,7 @@
 name: custom_widgets
 description: A new Flutter project.
 version: 0.0.1
-homepage:
+homepage: "https;?/fredgrott.medium.com"
 
 environment:
   sdk: '>=3.2.0-42.1.beta <4.0.0'
@@ -13,7 +13,7 @@ dependencies:
   flutter_adaptive_scaffold: ^0.1.7+1
   boxy: ^2.1.0
   dual_screen: ^1.0.4
-
+  
 
 dev_dependencies:
   flutter_test:

@@ -9,6 +9,8 @@
 // All rights reserved.
 
 
+// ignore_for_file: avoid_redundant_argument_values
+
 import 'package:flutter/material.dart';
 
 const Size _kDialogSize = Size(570, 850);
@@ -59,7 +61,7 @@ class ResponsiveDialog extends StatelessWidget {
                     // This clip is expensive, but the other ones don't
                     // look as pretty as all as this one.
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: child),
+                    child: child,),
               ),
             ),
           );

@@ -21,11 +21,7 @@ extension MediaQueryHinge on MediaQueryData {
   }
 }
 
-/// Detects if device has a fold hinge, i.e. foldable device
-/// see
-/// https://learn.microsoft.com/en-us/dual-screen/flutter/mediaquery
-/// hasHinge = MediaQuery.of(context).hinge != null;
-late bool hasHinge;
+
 
 /// Global so that we know when we have
 /// displayable second foldable screen as we can only
