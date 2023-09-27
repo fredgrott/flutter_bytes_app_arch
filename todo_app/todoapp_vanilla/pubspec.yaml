@@ -17,7 +17,7 @@ dependencies:
   catcher: ^0.7.0
   domain_layer_non_rxdart:
     path: ../domain_layer_non_rxdart
-  dynamic_color: ^1.6.6
+  dynamic_color: ^1.6.7
   flex_color_scheme: ^7.3.1
   material_symbols_icons: ^4.2668.0
   stager: ^1.0.1
@@ -25,6 +25,9 @@ dependencies:
   logging_appenders: ^1.2.0+1
   path_provider: ^2.1.1
   flutter_adaptive_scaffold: ^0.1.7+1
+  boxy: ^2.1.0
+  dual_screen: ^1.0.4
+
 
     
 

@@ -3,7 +3,8 @@
 // license that can be found in the LICENSE file.
 
 
-import 'package:custom_widgets/src/fold_observer.dart';
+
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 
 /// Route that auto-removes itself if the app spanned horizontally.

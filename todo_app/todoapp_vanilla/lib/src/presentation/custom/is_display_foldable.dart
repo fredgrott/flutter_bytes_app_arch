@@ -4,7 +4,8 @@
 
 
 
-import 'package:custom_widgets/src/fold_observer.dart';
+
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 
 /// Returns a boolean value whether the display has a hinge that splits the

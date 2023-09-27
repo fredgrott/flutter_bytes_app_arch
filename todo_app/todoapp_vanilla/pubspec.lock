@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  boxy:
+    dependency: "direct main"
+    description:
+      name: boxy
+      sha256: cd8fe0e01bd1f74a65c2754f753cedfb09cf88553ee289df20539c5576823f22
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   build:
     dependency: transitive
     description:
@@ -145,14 +153,22 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  dual_screen:
+    dependency: "direct main"
+    description:
+      name: dual_screen
+      sha256: e109446340715856924a2da3af351f6946143861f58edeb455e55aa5a972b593
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   dynamic_color:
     dependency: "direct main"
     description:
       name: dynamic_color
-      sha256: de4798a7069121aee12d5895315680258415de9b00e717723a1bd73d58f0126d
+      sha256: "96bff3df72e3d428bda2b874c7a521e8c86f592cae626ea594922fcc8d166e0c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.6"
+    version: "1.6.7"
   equatable:
     dependency: transitive
     description:
@@ -214,6 +230,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_adaptive_scaffold:
+    dependency: "direct main"
+    description:
+      name: flutter_adaptive_scaffold
+      sha256: "3e78be8b9c95b1c9832b2f8ec4a845adac205c4bb5e7bd3fb204b07990229167"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.7+1"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
